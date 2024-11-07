@@ -21,8 +21,14 @@ export default class Gameboard {
 
     for (let i = 0; i < ship.length; i++) {
       if (direction === "horizontal") {
+        if (board[startingX][startingY + i] !== null) {
+          throw new Error("Ship placement overlaps with another ship");
+        }
         board[startingX][startingY + i] = ship;
       } else if (direction === "vertical") {
+        if (board[startingX + i][startingY] !== null) {
+          throw new Error("Ship placement overlaps with another ship");
+        }
         board[startingX + i][startingY] = ship;
       }
     }
