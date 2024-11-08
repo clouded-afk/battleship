@@ -33,4 +33,17 @@ export default class Gameboard {
       }
     }
   }
+
+  recieveAttack(xCoordinate, yCoordinate) {
+    const board = this.board;
+
+    if (
+      xCoordinate < 0 ||
+      xCoordinate >= board.length ||
+      yCoordinate < 0 ||
+      yCoordinate >= board[0].length
+    ) {
+      throw new Error("Invalid Coordinates to Attack!");
+    }
+  }
 }
