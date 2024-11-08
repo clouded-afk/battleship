@@ -62,4 +62,21 @@ export default class Gameboard {
       board[xCoordinate][yCoordinate] = "miss";
     }
   }
+
+  isFleetSunk() {
+    const board = this.board;
+
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < board[0].length; j++) {
+        if (
+          board[i][j] !== null &&
+          board[i][j] !== "hit" &&
+          board[i][j] !== "miss"
+        ) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 }
