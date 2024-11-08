@@ -46,6 +46,13 @@ export default class Gameboard {
       throw new Error("Invalid Coordinates to Attack!");
     }
 
+    if (
+      board[xCoordinate][yCoordinate] === "hit" ||
+      board[xCoordinate][yCoordinate] === "miss"
+    ) {
+      throw new Error("Coordinates have already been attacked!");
+    }
+
     if (board[xCoordinate][yCoordinate] !== null) {
       const ship = board[xCoordinate][yCoordinate];
 
