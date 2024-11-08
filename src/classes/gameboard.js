@@ -45,5 +45,14 @@ export default class Gameboard {
     ) {
       throw new Error("Invalid Coordinates to Attack!");
     }
+
+    if (board[xCoordinate][yCoordinate] !== null) {
+      const ship = board[xCoordinate][yCoordinate];
+
+      ship.hit();
+      board[xCoordinate][yCoordinate] = "hit";
+    } else {
+      board[xCoordinate][yCoordinate] = "miss";
+    }
   }
 }
