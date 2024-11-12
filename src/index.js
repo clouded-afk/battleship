@@ -1,7 +1,7 @@
 import "./style.css";
 import Game from "./modules/gameController";
 import Ship from "./classes/ship";
-import { renderBoards } from "./modules/domController";
+import { renderBoards, cpuBoardEventHandler } from "./modules/domController";
 
 const game = new Game();
 game.createPlayers();
@@ -25,6 +25,7 @@ game.cpuPlayer.board.placeShip(four, 4, 0, "vertical");
 game.cpuPlayer.board.placeShip(five, 5, 4, "horizontal");
 
 renderBoards(game);
+cpuBoardEventHandler(game);
 
 console.log(game.humanPlayer.board.board);
 console.log(game.cpuPlayer.board.board);
