@@ -34,3 +34,11 @@
 .ship {
   background-color: purple;
 }
+
+.hit {
+  background-color: red;
+}
+
+.miss {
+  background-color: aqua;
+}
