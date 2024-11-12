@@ -34,7 +34,7 @@ export default class Gameboard {
     }
   }
 
-  recieveAttack(xCoordinate, yCoordinate) {
+  receiveAttack(xCoordinate, yCoordinate) {
     const board = this.board;
 
     if (
