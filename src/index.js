@@ -26,6 +26,3 @@ game.cpuPlayer.board.placeShip(five, 5, 4, "horizontal");
 
 renderBoards(game);
 cpuBoardEventHandler(game);
-
-console.log(game.humanPlayer.board.board);
-console.log(game.cpuPlayer.board.board);
