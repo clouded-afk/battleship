@@ -9,11 +9,11 @@ function renderBoards(game) {
     for (let j = 0; j < humanBoard[0].length; j++) {
       const gridCellHuman = document.createElement("div");
       gridCellHuman.setAttribute("data-coordinates", `${i}, ${j}`);
-      gridCellHuman.classList.add("cell");
+      gridCellHuman.classList.add("human-cell");
 
       const gridCellCpu = document.createElement("div");
       gridCellCpu.setAttribute("data-coordinates", `${i}, ${j}`);
-      gridCellCpu.classList.add("cell");
+      gridCellCpu.classList.add("cpu-cell");
 
       if (
         humanBoard[i][j] !== "hit" &&
@@ -37,4 +37,20 @@ function renderBoards(game) {
   }
 }
 
-export { renderBoards };
+function cpuBoardEventHandler(game) {
+  const cpuBoard = game.cpuPlayer.board;
+  const boardCells = document.querySelectorAll(".cpu-cell");
+
+  boardCells.forEach((cell) => {
+    const coordinates = cell.getAttribute("data-coordinates").split(", ");
+    const x = parseInt(coordinates[0]);
+    const y = parseInt(coordinates[1]);
+
+    cell.addEventListener("click", () => {
+      cpuBoard.receiveAttack(x, y);
+      console.log(cpuBoard.board);
+    });
+  });
+}
+
+export { renderBoards, cpuBoardEventHandler };
