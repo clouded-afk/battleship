@@ -6,6 +6,7 @@ export default class Game {
   constructor() {
     this.humanPlayer = null;
     this.cpuPlayer = null;
+    this.currentTurn = this.humanPlayer;
   }
 
   createPlayers() {
@@ -17,5 +18,10 @@ export default class Game {
 
     this.humanPlayer.board.createGameboard();
     this.cpuPlayer.board.createGameboard();
+  }
+
+  switchTurn() {
+    this.currentTurn =
+      this.currentTurn === this.humanPlayer ? this.cpuPlayer : this.humanPlayer;
   }
 }
