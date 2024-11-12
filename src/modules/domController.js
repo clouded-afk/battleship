@@ -23,22 +23,6 @@ function renderBoards(game) {
         gridCellHuman.classList.add("ship");
       }
 
-      if (humanBoard[i][j] === "hit") {
-        gridCellHuman.classList.add("hit");
-      }
-
-      if (
-        cpuBoard[i][j] !== "hit" &&
-        cpuBoard[i][j] !== "miss" &&
-        cpuBoard[i][j] !== null
-      ) {
-        gridCellCpu.classList.add("ship");
-      }
-
-      if (cpuBoard[i][j] === "hit") {
-        gridCellCpu.classList.add("hit");
-      }
-
       humanContainer.appendChild(gridCellHuman);
       cpuContainer.appendChild(gridCellCpu);
     }
