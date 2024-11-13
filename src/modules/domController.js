@@ -50,7 +50,6 @@ function updatePlayerBoardDisplay(board, x, y) {
 
   boardCells.forEach((cell) => {
     if (cell.getAttribute("data-coordinates") === `${x}, ${y}`) {
-      board.receiveAttack(x, y);
       cell.classList.add(board.board[x][y] === "hit" ? "hit" : "miss");
     }
   });
