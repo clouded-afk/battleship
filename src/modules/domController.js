@@ -45,4 +45,15 @@ function cpuBoardEventHandler(game) {
   });
 }
 
-export { renderBoards, cpuBoardEventHandler };
+function updatePlayerBoardDisplay(board, x, y) {
+  const boardCells = document.querySelectorAll(".human-cell");
+
+  boardCells.forEach((cell) => {
+    if (cell.getAttribute("data-coordinates") === `${x}, ${y}`) {
+      board.receiveAttack(x, y);
+      cell.classList.add(board.board[x][y] === "hit" ? "hit" : "miss");
+    }
+  });
+}
+
+export { renderBoards, cpuBoardEventHandler, updatePlayerBoardDisplay };
