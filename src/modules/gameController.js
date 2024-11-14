@@ -3,8 +3,9 @@ import Ship from "../classes/ship";
 import Player from "../classes/player";
 
 import {
-  cpuBoardEventHandler,
   updatePlayerBoardDisplay,
+  disableEventListeners,
+  enableEventListeners,
 } from "./domController";
 
 export default class Game {
@@ -21,7 +22,7 @@ export default class Game {
     this.humanPlayer.board.createGameboard();
     this.cpuPlayer.board.createGameboard();
 
-    this.currentTurn = this.humanPlayer;
+    this.currentTurn = this.cpuPlayer;
   }
 
   switchTurn() {
@@ -43,5 +44,12 @@ export default class Game {
 
     humanBoard.receiveAttack(xCoordinate, yCoordinate);
     updatePlayerBoardDisplay(humanBoard, xCoordinate, yCoordinate);
+  }
+
+  playRound() {
+    if (this.currentTurn === this.cpuPlayer) {
+      this.sendCPUAttack();
+    }
+    this.switchTurn();
   }
 }
