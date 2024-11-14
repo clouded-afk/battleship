@@ -3,7 +3,6 @@ function renderBoards(game) {
   const cpuContainer = document.querySelector(".player-two-container");
 
   const humanBoard = game.humanPlayer.board.board;
-  const cpuBoard = game.cpuPlayer.board.board;
 
   for (let i = 0; i < humanBoard.length; i++) {
     for (let j = 0; j < humanBoard[0].length; j++) {
