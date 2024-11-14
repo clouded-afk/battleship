@@ -4,7 +4,7 @@ import Ship from "./classes/ship";
 import { renderBoards, cpuBoardEventHandler } from "./modules/domController";
 
 const game = new Game();
-game.createPlayers();
+game.startGame();
 
 const one = new Ship(5);
 const two = new Ship(4);
@@ -26,6 +26,3 @@ game.cpuPlayer.board.placeShip(five, 5, 4, "horizontal");
 
 renderBoards(game);
 cpuBoardEventHandler(game);
-
-console.log(game.humanPlayer.board.board);
-game.sendCPUAttack();
