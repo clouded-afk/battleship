@@ -39,6 +39,10 @@ function cpuBoardEventHandler(game) {
 
     cell.addEventListener("click", () => {
       cpuBoard.receiveAttack(x, y);
+      setTimeout(() => {
+        game.playRound();
+        game.switchTurn();
+      }, 500);
       cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
     });
   });
