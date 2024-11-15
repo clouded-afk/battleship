@@ -37,16 +37,17 @@ function cpuBoardEventHandler(game) {
     const x = parseInt(coordinates[0]);
     const y = parseInt(coordinates[1]);
 
-    cell.addEventListener("click", () => {
+    const handleClick = () => {
       if (game.currentTurn !== game.cpuPlayer) {
         cpuBoard.receiveAttack(x, y);
         game.switchTurn();
-        setTimeout(() => {
-          game.playRound();
-        }, 750);
+        game.playRound();
         cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
       }
-    });
+      game.checkForWinner();
+    };
+
+    cell.addEventListener("click", handleClick);
   });
 }
 
