@@ -3,6 +3,7 @@ function renderBoards(game) {
   const cpuContainer = document.querySelector(".player-two-container");
 
   const humanBoard = game.humanPlayer.board.board;
+  const cpuBoard = game.cpuPlayer.board.board;
 
   for (let i = 0; i < humanBoard.length; i++) {
     for (let j = 0; j < humanBoard[0].length; j++) {
@@ -20,6 +21,14 @@ function renderBoards(game) {
         humanBoard[i][j] !== null
       ) {
         gridCellHuman.classList.add("ship");
+      }
+
+      if (
+        cpuBoard[i][j] !== "hit" &&
+        cpuBoard[i][j] !== "miss" &&
+        cpuBoard[i][j] !== null
+      ) {
+        gridCellCpu.classList.add("ship");
       }
 
       humanContainer.appendChild(gridCellHuman);
