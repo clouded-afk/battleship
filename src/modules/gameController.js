@@ -48,4 +48,16 @@ export default class Game {
     }
     this.switchTurn();
   }
+
+  checkForWinner() {
+    if (this.humanPlayer.board.isFleetSunk()) {
+      setTimeout(() => {
+        alert("CPU Wins!");
+      }, 250);
+    } else if (this.cpuPlayer.board.isFleetSunk()) {
+      setTimeout(() => {
+        alert("You Win!");
+      }, 250);
+    }
+  }
 }
