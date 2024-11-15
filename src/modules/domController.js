@@ -38,12 +38,14 @@ function cpuBoardEventHandler(game) {
     const y = parseInt(coordinates[1]);
 
     cell.addEventListener("click", () => {
-      cpuBoard.receiveAttack(x, y);
-      setTimeout(() => {
-        game.playRound();
+      if (game.currentTurn !== game.cpuPlayer) {
+        cpuBoard.receiveAttack(x, y);
         game.switchTurn();
-      }, 500);
-      cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
+        setTimeout(() => {
+          game.playRound();
+        }, 750);
+        cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
+      }
     });
   });
 }
