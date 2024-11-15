@@ -2,11 +2,7 @@ import Gameboard from "../classes/gameboard";
 import Ship from "../classes/ship";
 import Player from "../classes/player";
 
-import {
-  updatePlayerBoardDisplay,
-  disableEventListeners,
-  enableEventListeners,
-} from "./domController";
+import { updatePlayerBoardDisplay } from "./domController";
 
 export default class Game {
   constructor() {
@@ -22,7 +18,7 @@ export default class Game {
     this.humanPlayer.board.createGameboard();
     this.cpuPlayer.board.createGameboard();
 
-    this.currentTurn = this.cpuPlayer;
+    this.currentTurn = this.humanPlayer;
   }
 
   switchTurn() {
