@@ -1,19 +1,15 @@
-function renderBoards(game) {
+import Game from "./gameController";
+
+function renderPlayerBoard(game) {
   const humanContainer = document.querySelector(".player-one-container");
-  const cpuContainer = document.querySelector(".player-two-container");
 
   const humanBoard = game.humanPlayer.board.board;
-  const cpuBoard = game.cpuPlayer.board.board;
 
   for (let i = 0; i < humanBoard.length; i++) {
     for (let j = 0; j < humanBoard[0].length; j++) {
       const gridCellHuman = document.createElement("div");
       gridCellHuman.setAttribute("data-coordinates", `${i}, ${j}`);
       gridCellHuman.classList.add("human-cell");
-
-      const gridCellCpu = document.createElement("div");
-      gridCellCpu.setAttribute("data-coordinates", `${i}, ${j}`);
-      gridCellCpu.classList.add("cpu-cell");
 
       if (
         humanBoard[i][j] !== "hit" &&
@@ -23,6 +19,22 @@ function renderBoards(game) {
         gridCellHuman.classList.add("ship");
       }
 
+      humanContainer.appendChild(gridCellHuman);
+    }
+  }
+}
+
+function renderCPUBoard(game) {
+  const cpuContainer = document.querySelector(".player-two-container");
+
+  const cpuBoard = game.cpuPlayer.board.board;
+
+  for (let i = 0; i < cpuBoard.length; i++) {
+    for (let j = 0; j < cpuBoard[0].length; j++) {
+      const gridCellCpu = document.createElement("div");
+      gridCellCpu.setAttribute("data-coordinates", `${i}, ${j}`);
+      gridCellCpu.classList.add("cpu-cell");
+
       if (
         cpuBoard[i][j] !== "hit" &&
         cpuBoard[i][j] !== "miss" &&
@@ -31,7 +43,6 @@ function renderBoards(game) {
         gridCellCpu.classList.add("ship");
       }
 
-      humanContainer.appendChild(gridCellHuman);
       cpuContainer.appendChild(gridCellCpu);
     }
   }
@@ -76,4 +87,4 @@ function updatePlayerBoardDisplay(board, x, y) {
   });
 }
 
-export { renderBoards, cpuBoardEventHandler, updatePlayerBoardDisplay };
+export { renderPlayerBoard, cpuBoardEventHandler, updatePlayerBoardDisplay };
