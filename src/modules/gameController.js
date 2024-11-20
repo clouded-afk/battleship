@@ -91,7 +91,9 @@ export default class Game {
 
   playRound() {
     if (this.currentTurn === this.cpuPlayer) {
-      this.sendCPUAttack();
+      setTimeout(() => {
+        this.sendCPUAttack();
+      }, 750);
     }
     this.switchTurn();
   }
