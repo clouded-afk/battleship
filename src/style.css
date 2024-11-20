@@ -3,24 +3,28 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: grey;
+}
+
 .main-container {
   display: flex;
   flex-direction: row;
 }
 
-.player-one-container,
+.player-one-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1px;
+  border: 2px solid green;
+}
+
 .player-two-container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   gap: 1px;
-}
-
-.player-one-container {
-  border: 2px solid green;
-}
-
-.player-two-container {
   border: 2px solid red;
 }
 
@@ -32,7 +36,7 @@
 }
 
 .ship {
-  background-color: purple;
+  background-color: orange;
 }
 
 .hit {
