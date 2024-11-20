@@ -16,22 +16,55 @@ export default class Gameboard {
     return board;
   }
 
+  clearBoard() {
+    const board = this.board;
+
+    for (let i = 0; i < board.length; i++) {
+      for (let j = 0; j < board[0].length; j++) {
+        board[i][j] = null;
+      }
+    }
+  }
+
   placeShip(ship, startingX, startingY, direction) {
     const board = this.board;
 
-    for (let i = 0; i < ship.length; i++) {
-      if (direction === "horizontal") {
+    if (
+      startingX < 0 ||
+      startingX > board.length ||
+      startingY < 0 ||
+      startingY > board[0].length
+    ) {
+      throw new Error("Invalid Coordinates");
+    }
+
+    if (direction === "horizontal") {
+      if (startingY + ship.length > board[0].length) {
+        throw new Error("Invalid Coordinates");
+      }
+      for (let i = 0; i < ship.length - 1; i++) {
         if (board[startingX][startingY + i] !== null) {
-          throw new Error("Ship placement overlaps with another ship");
+          throw new Error("Invalid Position");
         }
+      }
+      for (let i = 0; i < ship.length; i++) {
         board[startingX][startingY + i] = ship;
-      } else if (direction === "vertical") {
+      }
+    } else {
+      if (startingX + ship.length > board.length) {
+        throw new Error("Invalid Coordinates");
+      }
+      for (let i = 0; i < ship.length - 1; i++) {
         if (board[startingX + i][startingY] !== null) {
-          throw new Error("Ship placement overlaps with another ship");
+          throw new Error("Invalid Position");
         }
+      }
+      for (let i = 0; i < ship.length; i++) {
         board[startingX + i][startingY] = ship;
       }
     }
+
+    return true;
   }
 
   receiveAttack(xCoordinate, yCoordinate) {
