@@ -40,6 +40,7 @@ function renderBoards(game) {
 function cpuBoardEventHandler(game) {
   const cpuBoard = game.cpuPlayer.board;
   const boardCells = document.querySelectorAll(".cpu-cell");
+  let isClickable = true;
 
   boardCells.forEach((cell) => {
     const coordinates = cell.getAttribute("data-coordinates").split(", ");
@@ -47,13 +48,18 @@ function cpuBoardEventHandler(game) {
     const y = parseInt(coordinates[1]);
 
     const handleClick = () => {
-      if (game.currentTurn !== game.cpuPlayer) {
+      if (game.currentTurn !== game.cpuPlayer && isClickable) {
+        isClickable = false;
         cpuBoard.receiveAttack(x, y);
         game.switchTurn();
         game.playRound();
         cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
+        game.checkForWinner();
+
+        setTimeout(() => {
+          isClickable = true;
+        }, 1000);
       }
-      game.checkForWinner();
     };
 
     cell.addEventListener("click", handleClick);
