@@ -24,6 +24,12 @@ function renderPlayerBoard(game) {
   }
 }
 
+function removePlayerBoard() {
+  const humanContainer = document.querySelector(".player-one-container");
+
+  humanContainer.innerHTML = "";
+}
+
 function renderCPUBoard(game) {
   const cpuContainer = document.querySelector(".player-two-container");
 
@@ -87,4 +93,20 @@ function updatePlayerBoardDisplay(board, x, y) {
   });
 }
 
-export { renderPlayerBoard, cpuBoardEventHandler, updatePlayerBoardDisplay };
+function enableRandomizeButton(game) {
+  const randomBtn = document.querySelector(".randomize-btn");
+
+  randomBtn.addEventListener("click", () => {
+    game.randomizeShipPlacement(game.humanPlayer.board);
+    removePlayerBoard();
+    renderPlayerBoard(game);
+  });
+}
+
+export {
+  renderPlayerBoard,
+  cpuBoardEventHandler,
+  updatePlayerBoardDisplay,
+  renderCPUBoard,
+  enableRandomizeButton,
+};
