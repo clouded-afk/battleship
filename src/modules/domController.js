@@ -41,14 +41,6 @@ function renderCPUBoard(game) {
       gridCellCpu.setAttribute("data-coordinates", `${i}, ${j}`);
       gridCellCpu.classList.add("cpu-cell");
 
-      if (
-        cpuBoard[i][j] !== "hit" &&
-        cpuBoard[i][j] !== "miss" &&
-        cpuBoard[i][j] !== null
-      ) {
-        gridCellCpu.classList.add("ship");
-      }
-
       cpuContainer.appendChild(gridCellCpu);
     }
   }
