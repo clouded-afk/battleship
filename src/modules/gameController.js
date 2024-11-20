@@ -56,7 +56,7 @@ export default class Game {
     return shipCells;
   }
 
-  randomizeCPUShipPlacement() {
+  randomizeShipPlacement(board) {
     const ships = [
       new Ship(5),
       new Ship(4),
@@ -65,11 +65,9 @@ export default class Game {
       new Ship(2),
     ];
 
-    const cpuBoard = this.cpuPlayer.board;
-
     let shipCells;
     do {
-      cpuBoard.clearBoard();
+      board.clearBoard();
       shipCells = 0;
 
       ships.forEach((ship) => {
@@ -80,7 +78,7 @@ export default class Game {
           const direction = Math.random() < 0.5 ? "horizontal" : "vertical";
 
           try {
-            placed = cpuBoard.placeShip(ship, x, y, direction);
+            placed = board.placeShip(ship, x, y, direction);
           } catch (error) {
             placed = false;
           }
@@ -89,8 +87,6 @@ export default class Game {
 
       shipCells = this.countCPUShips();
     } while (shipCells !== 17);
-
-    console.log(cpuBoard.board);
   }
 
   playRound() {
