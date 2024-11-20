@@ -42,6 +42,57 @@ export default class Game {
     updatePlayerBoardDisplay(humanBoard, xCoordinate, yCoordinate);
   }
 
+  countCPUShips() {
+    let shipCells = 0;
+
+    for (let i = 0; i < this.cpuPlayer.board.board.length; i++) {
+      for (let j = 0; j < this.cpuPlayer.board.board[0].length; j++) {
+        if (this.cpuPlayer.board.board[i][j] !== null) {
+          shipCells++;
+        }
+      }
+    }
+
+    return shipCells;
+  }
+
+  randomizeCPUShipPlacement() {
+    const ships = [
+      new Ship(5),
+      new Ship(4),
+      new Ship(3),
+      new Ship(3),
+      new Ship(2),
+    ];
+
+    const cpuBoard = this.cpuPlayer.board;
+
+    let shipCells;
+    do {
+      cpuBoard.clearBoard();
+      shipCells = 0;
+
+      ships.forEach((ship) => {
+        let placed = false;
+        while (!placed) {
+          const x = Math.floor(Math.random() * 10);
+          const y = Math.floor(Math.random() * 10);
+          const direction = Math.random() < 0.5 ? "horizontal" : "vertical";
+
+          try {
+            placed = cpuBoard.placeShip(ship, x, y, direction);
+          } catch (error) {
+            placed = false;
+          }
+        }
+      });
+
+      shipCells = this.countCPUShips();
+    } while (shipCells !== 17);
+
+    console.log(cpuBoard.board);
+  }
+
   playRound() {
     if (this.currentTurn === this.cpuPlayer) {
       this.sendCPUAttack();
