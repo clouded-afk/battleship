@@ -3,7 +3,7 @@ import Game from "./modules/gameController";
 import Ship from "./classes/ship";
 import {
   renderPlayerBoard,
-  recpuBoardEventHandler,
+  cpuBoardEventHandler,
   renderCPUBoard,
   enableRandomizeButton,
 } from "./modules/domController";
