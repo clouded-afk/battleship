@@ -42,7 +42,7 @@ export default class Gameboard {
       if (startingY + ship.length > board[0].length) {
         throw new Error("Invalid Coordinates");
       }
-      for (let i = 0; i < ship.length - 1; i++) {
+      for (let i = 0; i < ship.length; i++) {
         if (board[startingX][startingY + i] !== null) {
           throw new Error("Invalid Position");
         }
@@ -54,7 +54,7 @@ export default class Gameboard {
       if (startingX + ship.length > board.length) {
         throw new Error("Invalid Coordinates");
       }
-      for (let i = 0; i < ship.length - 1; i++) {
+      for (let i = 0; i < ship.length; i++) {
         if (board[startingX + i][startingY] !== null) {
           throw new Error("Invalid Position");
         }
