@@ -17,6 +17,7 @@ body {
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   gap: 1px;
+  margin: auto;
   border: 2px solid green;
 }
 
@@ -25,6 +26,7 @@ body {
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   gap: 1px;
+  margin: auto;
   border: 2px solid red;
 }
 
@@ -35,12 +37,23 @@ body {
   border: 1px solid black;
 }
 
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px;
+}
+
 .ship {
   background-color: orange;
 }
 
 .hit {
-  background-color: red;
+  background-image: url("assets/hit.png");
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .miss {
