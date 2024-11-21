@@ -95,10 +95,25 @@ function enableRandomizeButton(game) {
   });
 }
 
+function enableStartButton(game) {
+  const startBtn = document.querySelector(".start-btn");
+  const randomBtn = document.querySelector(".randomize-btn");
+  const cpuContainer = document.querySelector(".player-two-container");
+
+  startBtn.addEventListener("click", () => {
+    randomBtn.style.display = "none";
+    cpuContainer.style.display = "grid";
+    startBtn.style.display = "none";
+    renderCPUBoard(game);
+    cpuBoardEventHandler(game);
+  });
+}
+
 export {
   renderPlayerBoard,
   cpuBoardEventHandler,
   updatePlayerBoardDisplay,
   renderCPUBoard,
   enableRandomizeButton,
+  enableStartButton,
 };
