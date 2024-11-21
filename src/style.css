@@ -57,5 +57,8 @@ body {
 }
 
 .miss {
-  background-color: aqua;
+  background-image: url("assets/miss.png");
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
