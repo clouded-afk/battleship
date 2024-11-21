@@ -6,6 +6,7 @@ import {
   cpuBoardEventHandler,
   renderCPUBoard,
   enableRandomizeButton,
+  enableStartButton,
 } from "./modules/domController";
 
 const game = new Game();
@@ -15,7 +16,6 @@ game.startGame();
 game.randomizeShipPlacement(game.cpuPlayer.board);
 game.randomizeShipPlacement(game.humanPlayer.board);
 enableRandomizeButton(game);
+enableStartButton(game);
 
 renderPlayerBoard(game);
-renderCPUBoard(game);
-console.log(game.humanPlayer.board.board);
