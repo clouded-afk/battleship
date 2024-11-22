@@ -12,6 +12,18 @@ body {
   flex-direction: row;
 }
 
+.info-container {
+  display: flex;
+  margin: auto;
+  width: 400px;
+  height: 75px;
+  text-align: center;
+}
+
+.turn-info {
+  margin: auto;
+}
+
 .player-one-container {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
