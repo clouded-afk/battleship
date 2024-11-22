@@ -1,7 +1,7 @@
 import Game from "./gameController";
 
 function renderPlayerBoard(game) {
-  const humanContainer = document.querySelector(".player-one-container");
+  const humanContainer = document.querySelector(".human-container");
 
   const humanBoard = game.humanPlayer.board.board;
 
@@ -25,13 +25,13 @@ function renderPlayerBoard(game) {
 }
 
 function removePlayerBoard() {
-  const humanContainer = document.querySelector(".player-one-container");
+  const humanContainer = document.querySelector(".human-container");
 
   humanContainer.innerHTML = "";
 }
 
 function renderCPUBoard(game) {
-  const cpuContainer = document.querySelector(".player-two-container");
+  const cpuContainer = document.querySelector(".cpu-container");
 
   const cpuBoard = game.cpuPlayer.board.board;
 
@@ -98,7 +98,7 @@ function enableRandomizeButton(game) {
 function enableStartButton(game) {
   const startBtn = document.querySelector(".start-btn");
   const randomBtn = document.querySelector(".randomize-btn");
-  const cpuContainer = document.querySelector(".player-two-container");
+  const cpuContainer = document.querySelector(".cpu-container");
 
   startBtn.addEventListener("click", () => {
     randomBtn.style.display = "none";
