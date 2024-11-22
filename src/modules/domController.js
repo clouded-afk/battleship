@@ -67,7 +67,7 @@ function cpuBoardEventHandler(game) {
 
         setTimeout(() => {
           isClickable = true;
-        }, 1000);
+        }, 1500);
       }
     };
 
@@ -106,7 +106,39 @@ function enableStartButton(game) {
     startBtn.style.display = "none";
     renderCPUBoard(game);
     cpuBoardEventHandler(game);
+    displayTurnInfo(game);
   });
+}
+
+function displayTurnInfo(game) {
+  const turnDisplay = document.querySelector(".turn-info");
+
+  if (game.currentTurn === game.humanPlayer) {
+    turnDisplay.textContent = "";
+    printLetterByLetter(
+      ".turn-info",
+      "It's your turn, launch your torpedo!",
+      10,
+    );
+  } else if (game.currentTurn === game.cpuPlayer) {
+    turnDisplay.textContent = "";
+    printLetterByLetter(
+      ".turn-info",
+      "It's the CPU's turn, they are launching their torpedo!",
+      5,
+    );
+  }
+}
+
+function printLetterByLetter(element, message, speed) {
+  let i = 0;
+  let interval = setInterval(function () {
+    document.querySelector(element).textContent += message.charAt(i);
+    i++;
+    if (i > message.length) {
+      clearInterval(interval);
+    }
+  }, speed);
 }
 
 export {
@@ -116,4 +148,5 @@ export {
   renderCPUBoard,
   enableRandomizeButton,
   enableStartButton,
+  displayTurnInfo,
 };
