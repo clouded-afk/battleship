@@ -2,7 +2,7 @@ import Gameboard from "../classes/gameboard";
 import Ship from "../classes/ship";
 import Player from "../classes/player";
 
-import { updatePlayerBoardDisplay } from "./domController";
+import { updatePlayerBoardDisplay, displayTurnInfo } from "./domController";
 
 export default class Game {
   constructor() {
@@ -24,6 +24,7 @@ export default class Game {
   switchTurn() {
     this.currentTurn =
       this.currentTurn === this.humanPlayer ? this.cpuPlayer : this.humanPlayer;
+    displayTurnInfo(this);
   }
 
   sendCPUAttack() {
@@ -93,9 +94,9 @@ export default class Game {
     if (this.currentTurn === this.cpuPlayer) {
       setTimeout(() => {
         this.sendCPUAttack();
-      }, 750);
+        this.switchTurn();
+      }, 1250);
     }
-    this.switchTurn();
   }
 
   checkForWinner() {
