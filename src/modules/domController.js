@@ -146,7 +146,7 @@ function displayError(error) {
   const errorMessage = document.querySelector(".error-message");
   const closeBtn = document.querySelector(".error-close");
 
-  errorMessage.textContent = error.message;
+  errorMessage.textContent = error.message + " Close this box and try again!";
   errorContainer.style.display = "block";
 
   closeBtn.addEventListener("click", () => {
