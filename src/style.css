@@ -74,3 +74,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.error-container {
+  display: none;
+  margin: auto;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  z-index: 1;
+}
