@@ -60,7 +60,7 @@ function cpuBoardEventHandler(game) {
       if (game.currentTurn !== game.cpuPlayer && isClickable) {
         isClickable = false;
         cpuBoard.receiveAttack(x, y);
-        game.switchTurn();
+        maintainTurn(game);
         game.playRound();
         cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
         game.checkForWinner();
@@ -141,6 +141,34 @@ function printLetterByLetter(element, message, speed) {
   }, speed);
 }
 
+function displayError(error) {
+  const errorContainer = document.querySelector(".error-container");
+  const errorMessage = document.querySelector(".error-message");
+  const closeBtn = document.querySelector(".error-close");
+
+  errorMessage.textContent = error.message;
+  errorContainer.style.display = "block";
+
+  closeBtn.addEventListener("click", () => {
+    errorContainer.style.display = "none";
+  });
+
+  if ((errorContainer.style.display = "block")) {
+    return true;
+  }
+  return false;
+}
+
+function maintainTurn(game) {
+  const errorContainer = document.querySelector(".error-container");
+
+  if (errorContainer.style.display === "block") {
+    game.currentTurn === game.humanPlayer;
+  } else {
+    game.switchTurn();
+  }
+}
+
 export {
   renderPlayerBoard,
   cpuBoardEventHandler,
@@ -149,4 +177,6 @@ export {
   enableRandomizeButton,
   enableStartButton,
   displayTurnInfo,
+  displayError,
+  maintainTurn,
 };
