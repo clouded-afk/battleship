@@ -1,3 +1,5 @@
+import { displayError } from "../modules/domController";
+
 export default class Gameboard {
   constructor() {
     this.board = [];
@@ -70,29 +72,33 @@ export default class Gameboard {
   receiveAttack(xCoordinate, yCoordinate) {
     const board = this.board;
 
-    if (
-      xCoordinate < 0 ||
-      xCoordinate >= board.length ||
-      yCoordinate < 0 ||
-      yCoordinate >= board[0].length
-    ) {
-      throw new Error("Invalid Coordinates to Attack!");
-    }
+    try {
+      if (
+        xCoordinate < 0 ||
+        xCoordinate >= board.length ||
+        yCoordinate < 0 ||
+        yCoordinate >= board[0].length
+      ) {
+        throw new Error("Invalid Coordinates to Attack!");
+      }
 
-    if (
-      board[xCoordinate][yCoordinate] === "hit" ||
-      board[xCoordinate][yCoordinate] === "miss"
-    ) {
-      throw new Error("Coordinates have already been attacked!");
-    }
+      if (
+        board[xCoordinate][yCoordinate] === "hit" ||
+        board[xCoordinate][yCoordinate] === "miss"
+      ) {
+        throw new Error("Coordinates have already been attacked!");
+      }
 
-    if (board[xCoordinate][yCoordinate] !== null) {
-      const ship = board[xCoordinate][yCoordinate];
+      if (board[xCoordinate][yCoordinate] !== null) {
+        const ship = board[xCoordinate][yCoordinate];
 
-      ship.hit();
-      board[xCoordinate][yCoordinate] = "hit";
-    } else {
-      board[xCoordinate][yCoordinate] = "miss";
+        ship.hit();
+        board[xCoordinate][yCoordinate] = "hit";
+      } else {
+        board[xCoordinate][yCoordinate] = "miss";
+      }
+    } catch (error) {
+      displayError(error);
     }
   }
 
