@@ -75,7 +75,7 @@ body {
   background-position: center;
 }
 
-.error-block {
+.popup-block {
   position: absolute;
   display: none;
   height: 100%;
@@ -88,6 +88,18 @@ body {
 }
 
 .error-container {
+  position: relative;
+  display: none;
+  transform: translate(-50%, -50%);
+  top: 25%;
+  left: 50%;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  z-index: 1000;
+}
+
+.result-container {
   position: relative;
   display: none;
   transform: translate(-50%, -50%);
