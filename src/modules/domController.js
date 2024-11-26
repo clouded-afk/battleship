@@ -63,7 +63,7 @@ function cpuBoardEventHandler(game) {
         maintainTurn(game);
         game.playRound();
         cell.classList.add(cpuBoard.board[x][y] === "hit" ? "hit" : "miss");
-        game.checkForWinner();
+        displayResults(game);
 
         setTimeout(() => {
           isClickable = true;
@@ -142,18 +142,18 @@ function printLetterByLetter(element, message, speed) {
 }
 
 function displayError(error) {
-  const errorBlock = document.querySelector(".error-block");
+  const popupBlock = document.querySelector(".popup-block");
   const errorContainer = document.querySelector(".error-container");
   const errorMessage = document.querySelector(".error-message");
   const closeBtn = document.querySelector(".error-close");
 
   errorMessage.textContent = error.message + " Close this box and try again!";
   errorContainer.style.display = "block";
-  errorBlock.style.display = "block";
+  popupBlock.style.display = "block";
 
   closeBtn.addEventListener("click", () => {
     errorContainer.style.display = "none";
-    errorBlock.style.display = "none";
+    popupBlock.style.display = "none";
   });
 
   if ((errorContainer.style.display = "block")) {
@@ -169,6 +169,23 @@ function maintainTurn(game) {
     game.currentTurn === game.humanPlayer;
   } else {
     game.switchTurn();
+  }
+}
+
+function displayResults(game) {
+  const popupBlock = document.querySelector(".popup-block");
+  const resultContainer = document.querySelector(".result-container");
+  const resultText = document.querySelector(".result");
+  const playAgain = document.querySelector(".play-again");
+
+  if (game.checkForWinner() === game.cpuPlayer) {
+    popupBlock.style.display = "block";
+    resultContainer.style.display = "block";
+    resultText.textContent = "CPU WINS!";
+  } else if (game.checkForWinner() === game.humanPlayer) {
+    popupBlock.style.display = "block";
+    resultContainer.style.display = "block";
+    resultText.textContent = "CONGRATS! YOU WIN!";
   }
 }
 
