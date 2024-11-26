@@ -142,15 +142,18 @@ function printLetterByLetter(element, message, speed) {
 }
 
 function displayError(error) {
+  const errorBlock = document.querySelector(".error-block");
   const errorContainer = document.querySelector(".error-container");
   const errorMessage = document.querySelector(".error-message");
   const closeBtn = document.querySelector(".error-close");
 
   errorMessage.textContent = error.message + " Close this box and try again!";
   errorContainer.style.display = "block";
+  errorBlock.style.display = "block";
 
   closeBtn.addEventListener("click", () => {
     errorContainer.style.display = "none";
+    errorBlock.style.display = "none";
   });
 
   if ((errorContainer.style.display = "block")) {
