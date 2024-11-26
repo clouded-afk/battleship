@@ -101,13 +101,9 @@ export default class Game {
 
   checkForWinner() {
     if (this.humanPlayer.board.isFleetSunk()) {
-      setTimeout(() => {
-        alert("CPU Wins!");
-      }, 250);
+      return this.cpuPlayer;
     } else if (this.cpuPlayer.board.isFleetSunk()) {
-      setTimeout(() => {
-        alert("You Win!");
-      }, 250);
+      return this.humanPlayer;
     }
   }
 }
