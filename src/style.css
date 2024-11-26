@@ -75,11 +75,26 @@ body {
   background-position: center;
 }
 
-.error-container {
+.error-block {
+  position: absolute;
   display: none;
-  margin: auto;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.error-container {
+  position: relative;
+  display: none;
+  transform: translate(-50%, -50%);
+  top: 25%;
+  left: 50%;
   width: 300px;
   height: 100px;
   background-color: white;
-  z-index: 1;
+  z-index: 1000;
 }
