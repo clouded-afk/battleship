@@ -1,10 +1,8 @@
 * {
   margin: 0;
   box-sizing: border-box;
-}
-
-body {
-  background-color: grey;
+  background-color: gray;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .board-container {
@@ -109,4 +107,41 @@ body {
   height: 100px;
   background-color: white;
   z-index: 1000;
+}
+
+.randomize-btn {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  background-color: #155e75;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.25ch;
+}
+
+.randomize-btn:hover {
+  background-color: #0e7490;
+}
+
+.randomize-btn:active {
+  background-color: #0891b2;
+}
+
+.start-btn {
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #166534;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 0.25ch;
+}
+
+.start-btn:hover {
+  background-color: #15803d;
+}
+
+.start-btn:active {
+  background-color: #16a34a;
 }
