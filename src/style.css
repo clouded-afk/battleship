@@ -1,7 +1,6 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  background-color: gray;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -173,6 +172,11 @@ footer {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #737373;
 }
 
 .fa-github {
