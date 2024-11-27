@@ -1,4 +1,3 @@
-import Gameboard from "../classes/gameboard";
 import Ship from "../classes/ship";
 import Player from "../classes/player";
 
@@ -11,7 +10,7 @@ export default class Game {
     this.currentTurn = null;
   }
 
-  startGame() {
+  setupGame() {
     this.humanPlayer = new Player();
     this.cpuPlayer = new Player();
 
@@ -39,7 +38,7 @@ export default class Game {
       humanBoard.board[xCoordinate][yCoordinate] === "hit"
     );
 
-    humanBoard.receiveAttack(xCoordinate, yCoordinate);
+    const attackResult = humanBoard.receiveAttack(xCoordinate, yCoordinate);
     updatePlayerBoardDisplay(humanBoard, xCoordinate, yCoordinate);
   }
 
