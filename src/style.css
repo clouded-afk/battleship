@@ -8,6 +8,10 @@
 .board-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1500px;
+  margin: auto;
 }
 
 .info-container {
