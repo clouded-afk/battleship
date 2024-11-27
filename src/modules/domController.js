@@ -193,6 +193,19 @@ function displayResults(game) {
   });
 }
 
+function gameSetup() {
+  const game = new Game();
+
+  game.setupGame();
+
+  game.randomizeShipPlacement(game.cpuPlayer.board);
+  game.randomizeShipPlacement(game.humanPlayer.board);
+  enableRandomizeButton(game);
+  enableStartButton(game);
+
+  renderPlayerBoard(game);
+}
+
 export {
   renderPlayerBoard,
   cpuBoardEventHandler,
@@ -203,4 +216,5 @@ export {
   displayTurnInfo,
   displayError,
   maintainTurn,
+  gameSetup,
 };
