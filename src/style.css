@@ -5,6 +5,16 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  margin: auto;
+  font-size: 36px;
+  letter-spacing: 1ch;
+}
+
 .board-container {
   display: flex;
   flex-direction: row;
