@@ -159,3 +159,22 @@ header {
 .start-btn:active {
   background-color: #16a34a;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.fa-github {
+  margin-left: 5px;
+}
