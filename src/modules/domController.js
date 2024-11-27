@@ -206,15 +206,4 @@ function gameSetup() {
   renderPlayerBoard(game);
 }
 
-export {
-  renderPlayerBoard,
-  cpuBoardEventHandler,
-  updatePlayerBoardDisplay,
-  renderCPUBoard,
-  enableRandomizeButton,
-  enableStartButton,
-  displayTurnInfo,
-  displayError,
-  maintainTurn,
-  gameSetup,
-};
+export { updatePlayerBoardDisplay, displayTurnInfo, displayError, gameSetup };
