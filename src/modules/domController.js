@@ -187,6 +187,10 @@ function displayResults(game) {
     resultContainer.style.display = "block";
     resultText.textContent = "CONGRATS! YOU WIN!";
   }
+
+  playAgain.addEventListener("click", () => {
+    window.location.reload();
+  });
 }
 
 export {
