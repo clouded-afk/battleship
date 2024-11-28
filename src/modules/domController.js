@@ -99,11 +99,13 @@ function enableStartButton(game) {
   const startBtn = document.querySelector(".start-btn");
   const randomBtn = document.querySelector(".randomize-btn");
   const cpuContainer = document.querySelector(".cpu-container");
+  const infoContainer = document.querySelector(".info-container");
 
   startBtn.addEventListener("click", () => {
     randomBtn.style.display = "none";
     cpuContainer.style.display = "grid";
     startBtn.style.display = "none";
+    infoContainer.style.display = "flex";
     renderCPUBoard(game);
     cpuBoardEventHandler(game);
     displayTurnInfo(game);
