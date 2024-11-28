@@ -12,6 +12,7 @@ header {
   margin: auto;
   font-size: 36px;
   letter-spacing: 1ch;
+  box-shadow: 1px 1px 1px 1px #d6d3d1;
 }
 
 .board-container {
@@ -220,6 +221,7 @@ footer {
   justify-content: center;
   width: 100%;
   padding: 15px;
+  box-shadow: 2px -2px 0px 0px #d6d3d1;
 }
 
 a {
