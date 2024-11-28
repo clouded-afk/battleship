@@ -88,42 +88,6 @@ header {
   background-position: center;
 }
 
-.popup-block {
-  position: absolute;
-  display: none;
-  height: 100%;
-  width: 100%;
-  z-index: 1000;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.error-container {
-  position: relative;
-  display: none;
-  transform: translate(-50%, -50%);
-  top: 25%;
-  left: 50%;
-  width: 300px;
-  height: 100px;
-  background-color: white;
-  z-index: 1000;
-}
-
-.result-container {
-  position: relative;
-  display: none;
-  transform: translate(-50%, -50%);
-  top: 25%;
-  left: 50%;
-  width: 300px;
-  height: 100px;
-  background-color: white;
-  z-index: 1000;
-}
-
 .randomize-btn {
   cursor: pointer;
   padding: 10px;
@@ -159,6 +123,63 @@ header {
 
 .start-btn:active {
   background-color: #16a34a;
+}
+
+.popup-block {
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.error-container {
+  position: relative;
+  display: none;
+  transform: translate(-50%, -50%);
+  top: 25%;
+  left: 50%;
+  width: 350px;
+  height: 150px;
+  background-color: white;
+  border-radius: 20px;
+  z-index: 1000;
+}
+
+.error-close {
+  color: red;
+  border: 1px solid red;
+  cursor: pointer;
+  margin-left: 90%;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.error-close:hover {
+  background-color: red;
+  border: 1px solid white;
+  color: white;
+}
+
+.error-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.result-container {
+  position: relative;
+  display: none;
+  transform: translate(-50%, -50%);
+  top: 25%;
+  left: 50%;
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  z-index: 1000;
 }
 
 footer {
