@@ -21,6 +21,7 @@ header {
   justify-content: center;
   max-width: 1500px;
   margin: auto;
+  margin-top: 20px;
 }
 
 .info-container {
@@ -29,6 +30,11 @@ header {
   width: 400px;
   height: 75px;
   text-align: center;
+  color: #84cc16;
+  background-color: black;
+  border-radius: 20px;
+  width: 600px;
+  margin-top: 50px;
 }
 
 .turn-info {
