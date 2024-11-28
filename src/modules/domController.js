@@ -180,11 +180,11 @@ function displayResults(game) {
 
   if (game.checkForWinner() === game.cpuPlayer) {
     popupBlock.style.display = "block";
-    resultContainer.style.display = "block";
+    resultContainer.style.display = "flex";
     resultText.textContent = "CPU WINS!";
   } else if (game.checkForWinner() === game.humanPlayer) {
     popupBlock.style.display = "block";
-    resultContainer.style.display = "block";
+    resultContainer.style.display = "flex";
     resultText.textContent = "CONGRATS! YOU WIN!";
   }
 
