@@ -41,7 +41,8 @@ header {
   grid-template-rows: repeat(10, 1fr);
   gap: 1px;
   margin: auto;
-  border: 2px solid green;
+  border: 2px solid black;
+  background-color: black;
 }
 
 .cpu-container {
@@ -50,14 +51,15 @@ header {
   grid-template-rows: repeat(10, 1fr);
   gap: 1px;
   margin: auto;
-  border: 2px solid red;
+  border: 2px solid black;
+  background-color: black;
 }
 
 .human-cell,
 .cpu-cell {
   height: 50px;
   width: 50px;
-  border: 1px solid black;
+  background-color: #93c5fd;
 }
 
 .btn-container {
@@ -69,7 +71,7 @@ header {
 }
 
 .ship {
-  background-color: orange;
+  background-color: #737373;
 }
 
 .hit {
