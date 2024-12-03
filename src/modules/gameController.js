@@ -8,6 +8,7 @@ export default class Game {
     this.humanPlayer = null;
     this.cpuPlayer = null;
     this.currentTurn = null;
+    this.lastCPUHitCoords = null;
   }
 
   setupGame() {
@@ -40,6 +41,14 @@ export default class Game {
 
     humanBoard.receiveAttack(xCoordinate, yCoordinate);
     updatePlayerBoardDisplay(humanBoard, xCoordinate, yCoordinate);
+
+    if (humanBoard.board[xCoordinate][yCoordinate] === "hit") {
+      this.lastCPUHitCoords = { x: xCoordinate, y: yCoordinate };
+    } else {
+      this.lastCPUHitCoords = null;
+    }
+
+    console.log(this.lastCPUHitCoords);
   }
 
   countCPUShips() {
