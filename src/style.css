@@ -11,8 +11,14 @@ header {
   padding-top: 20px;
   margin: auto;
   font-size: 36px;
-  letter-spacing: 1ch;
+  letter-spacing: 0.75ch;
   box-shadow: 1px 1px 1px 1px #d6d3d1;
+}
+
+h1 {
+  font-family: "Tektur", sans-serif;
+  padding: 10px;
+  margin-left: 25px;
 }
 
 .board-container {
