@@ -51,6 +51,38 @@ export default class Game {
     console.log(this.lastCPUHitCoords);
   }
 
+  attackAroundLastHit() {
+    if (!this.lastCPUHitCoords) {
+      return;
+    }
+
+    const { x, y } = this.lastCPUHitCoords;
+    const directions = [
+      { x: x - 1, y },
+      { x: x + 1, y },
+      { x, y: y - 1 },
+      { x, y: y + 1 },
+    ];
+
+    for (const { x: newX, y: newY } of directions) {
+      if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10) {
+        const humanBoard = this.humanPlayer.board;
+        if (
+          humanBoard.board[newX][newY] !== "miss" &&
+          humanBoard.board[newX][newY] !== "hit"
+        ) {
+          humanBoard.receiveAttack(newX, newY);
+          updatePlayerBoardDisplay(humanBoard, newX, newY);
+          this.lastCPUHitCoords =
+            humanBoard.board[newX][newY] === "hit"
+              ? { x: newX, y: newY }
+              : null;
+          break;
+        }
+      }
+    }
+  }
+
   countCPUShips() {
     let shipCells = 0;
 
@@ -101,7 +133,11 @@ export default class Game {
   playRound() {
     if (this.currentTurn === this.cpuPlayer) {
       setTimeout(() => {
-        this.sendCPUAttack();
+        if (this.lastCPUHitCoords) {
+          this.attackAroundLastHit();
+        } else {
+          this.sendCPUAttack();
+        }
         this.switchTurn();
       }, 1250);
     }
