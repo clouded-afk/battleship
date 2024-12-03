@@ -51,8 +51,6 @@ export default class Game {
     } else {
       this.lastCPUHitCoords = null;
     }
-
-    console.log(this.lastCPUHitCoords);
   }
 
   attackAroundLastHit() {
