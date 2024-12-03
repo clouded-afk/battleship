@@ -38,7 +38,7 @@ export default class Game {
       humanBoard.board[xCoordinate][yCoordinate] === "hit"
     );
 
-    const attackResult = humanBoard.receiveAttack(xCoordinate, yCoordinate);
+    humanBoard.receiveAttack(xCoordinate, yCoordinate);
     updatePlayerBoardDisplay(humanBoard, xCoordinate, yCoordinate);
   }
 
