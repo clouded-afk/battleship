@@ -64,6 +64,8 @@ export default class Game {
       { x, y: y + 1 },
     ];
 
+    let surroundingCellsAttacked = true;
+
     for (const { x: newX, y: newY } of directions) {
       if (newX >= 0 && newX < 10 && newY >= 0 && newY < 10) {
         const humanBoard = this.humanPlayer.board;
@@ -77,9 +79,20 @@ export default class Game {
             humanBoard.board[newX][newY] === "hit"
               ? { x: newX, y: newY }
               : null;
-          break;
+          return;
+        } else if (
+          humanBoard.board[newX][newY] !== "miss" ||
+          humanBoard.board[newX][newY] !== "hit"
+        ) {
+          continue;
         }
+      } else {
+        surroundingCellsAttacked = false;
       }
+    }
+
+    if (surroundingCellsAttacked) {
+      this.sendCPUAttack();
     }
   }
 
