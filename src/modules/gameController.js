@@ -1,7 +1,11 @@
 import Ship from "../classes/ship";
 import Player from "../classes/player";
 
-import { updatePlayerBoardDisplay, displayTurnInfo } from "./domController";
+import {
+  updatePlayerBoardDisplay,
+  displayTurnInfo,
+  displayResults,
+} from "./domController";
 
 export default class Game {
   constructor() {
@@ -151,6 +155,7 @@ export default class Game {
         } else {
           this.sendCPUAttack();
         }
+        displayResults(this);
         this.switchTurn();
       }, 1250);
     }
