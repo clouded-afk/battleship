@@ -210,4 +210,10 @@ function gameSetup() {
   renderPlayerBoard(game);
 }
 
-export { updatePlayerBoardDisplay, displayTurnInfo, displayError, gameSetup };
+export {
+  updatePlayerBoardDisplay,
+  displayTurnInfo,
+  displayError,
+  gameSetup,
+  displayResults,
+};
